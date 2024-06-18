@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
-const Icon = ({ iconPath, iconWidth, iconHeight }) => {
+const Icon = ({ iconPath, width, height }) => {
     return(
         <>
-        <img src={iconPath} alt="icon" width={iconWidth} height={iconHeight} />
+        <img src={iconPath} alt="icon" className={`${width} ${height}`} />
         </>
     )
 }
 Icon.propTypes = {
     iconPath: PropTypes.string.isRequired,
-    iconWidth: PropTypes.string,
-    iconHeight: PropTypes.string
+    width: PropTypes.string,
+    height: PropTypes.string
   };
 export default Icon;

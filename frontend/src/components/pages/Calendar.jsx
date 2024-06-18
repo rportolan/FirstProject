@@ -2,7 +2,7 @@ const Calendar = () => {
 
     return (
       <>
-      {/* <h1>CALENDAR</h1> */}
+        <h3>Bonjour</h3>
       </>
     )
   }

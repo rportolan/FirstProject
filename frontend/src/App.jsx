@@ -1,4 +1,4 @@
-import MenuTemplate from './components/templates/MenuTemplate';
+import AppTemplate from './components/templates/AppTemplate';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Dashboard from "./components/pages/Dashboard";
@@ -17,7 +17,7 @@ function App() {
   return (
     <>
     <Router>
-      <MenuTemplate>
+      <AppTemplate>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/mygoals" element={<MyGoals />} />
@@ -26,7 +26,7 @@ function App() {
           <Route path="/logbook" element={<LogBook />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
-      </MenuTemplate>
+      </AppTemplate>
     </Router>
     </>
   )

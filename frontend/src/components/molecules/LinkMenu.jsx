@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 const LinkMenu = ({ to, children, iconPath, iconWidth, iconHeight }) => { 
     return (
         <li className="w-full">
-            <RouterLink to={to} className='flex items-center px-6 py-2 mt-4 hover:bg-stone-800 rounded cursor-pointer'>
+            <RouterLink to={to} className='flex items-center px-6 py-2 mt-6 hover:bg-neutral-900 rounded cursor-pointer'>
                 <div className='mr-4'>
                     <Icon iconPath={iconPath} iconWidth={iconWidth} iconHeight={iconHeight} />
                 </div>

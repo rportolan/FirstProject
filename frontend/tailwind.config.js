@@ -11,6 +11,7 @@ module.exports = {
       },
       fontSize: {
         xss: '0.5rem',
+        smm: '0.6rem',
         sm: '0.8rem',
         base: '1rem',
         xl: '1.25rem',
@@ -21,6 +22,7 @@ module.exports = {
       },
       colors: {
         'secondary': '#141414',
+        'tertiary' : '#090A09'
       },
     },
   },

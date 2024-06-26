@@ -1,3 +1,4 @@
+
 import Logo from '../atoms/Logo';
 import TitleLogo from '../atoms/TitleLogo';
 import LinkMenu from '../molecules/LinkMenu';
@@ -9,7 +10,7 @@ import iconGoal from '../../assets/iconGoal.svg';
 import iconSettings from '../../assets/iconSettings.svg';
 
 const Menu = () => (
-    <div className="w-64 h-screen flex flex-col items-center border-r border-dotted border-secondary">
+    <div className="w-64 min-h-screen flex flex-col items-center border-r border-dotted border-secondary">
         <div className="flex items-center justify-center mt-8 mb-4">
             <div className="mr-4">
                 <Logo width={"w-12"} height={"h-12"}/>
@@ -30,5 +31,6 @@ const Menu = () => (
 );
 
 export default Menu;
+
 
 

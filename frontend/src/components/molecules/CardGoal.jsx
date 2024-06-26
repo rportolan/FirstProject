@@ -14,7 +14,7 @@ const CardGoal = ({ progress }) => {
         } else {
             cardColor = 'bg-indigo-400';
         }
-        const basesClasses = "w-64 h-28 px-4 py-0.5 rounded-lg"
+        const basesClasses = "w-64 pb-6 px-4  rounded-lg"
     return(
         <>
             <div className={classNames(basesClasses, cardColor)}>

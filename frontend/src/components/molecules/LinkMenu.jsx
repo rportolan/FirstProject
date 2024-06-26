@@ -9,7 +9,7 @@ const LinkMenu = ({ to, children, iconPath, iconWidth, iconHeight }) => {
                 <div className='mr-4'>
                     <Icon iconPath={iconPath} iconWidth={iconWidth} iconHeight={iconHeight} />
                 </div>
-                <p className='text-sm'>{children}</p>
+                <p className='text-base'>{children}</p>
             </RouterLink>
         </li>
     );

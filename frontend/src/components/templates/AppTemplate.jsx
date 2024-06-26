@@ -7,8 +7,8 @@ const AppTemplate = ({ children }) => (
         <div className='flex'>
             <Menu />
             <div className='w-screen'>
-                <Header /> 
-                <main className='mt-11 ml-11 mr-14'>{children}</main>
+                <Header to="/profile" /> 
+                <main className='mt-12 mb-11 ml-11 mr-14'>{children}</main>
             </div>
         </div>
         
@@ -19,3 +19,4 @@ AppTemplate.propTypes = {
   };
 
 export default AppTemplate;
+

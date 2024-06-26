@@ -5,8 +5,8 @@ import CardGoal from "../molecules/CardGoal";
 const MyGoals = () => {
     return (
       <>
-        <div className="flex items-center justify-between">
-            <h1 className="">Mes objectifs</h1>
+        <div className="flex justify-between">
+            <h3>Mes objectifs</h3>
             <SearchBar placeholder="Search for items..." />
             <div>
                 <Select />
@@ -14,7 +14,7 @@ const MyGoals = () => {
             </div>
         </div>
         <div className="mt-12 flex flex-wrap">
-            <div className="flex flex-wrap gap-8">
+            <div className="flex flex-wrap gap-4 justify-between">
                 <CardGoal progress={100}/>
                 <CardGoal progress={100}/>
                 <CardGoal progress={100}/>

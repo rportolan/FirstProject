@@ -14,7 +14,7 @@ const ExpandableContainer = ({ title, content }) => {
     return (
         <div className="border border-secondary rounded p-4 mb-4">
             <div className="flex justify-between items-center cursor-pointer" onClick={toggleExpand}>
-                <h2>{title}</h2>
+                <h2 className='text-sm md:text-base'>{title}</h2>
                 {isExpanded ? (
                     <Icon iconPath={iconArrowUp} />
                 ) : (

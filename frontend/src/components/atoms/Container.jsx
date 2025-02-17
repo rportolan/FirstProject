@@ -31,7 +31,7 @@ Container.propTypes = {
 Container.defaultProps = {
     bgColor: 'bg-black',
     borderColor: 'border border-secondary',
-    borderRadius: 'rounded',
+    borderRadius: 'rounded-xl',
 };
 
 export default Container;

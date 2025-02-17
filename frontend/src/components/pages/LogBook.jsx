@@ -1,36 +1,113 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import SearchBar from "../atoms/SearchBar";
 import Select from "../atoms/Select";
 import Button from "../atoms/Button";
 import ItemBook from "../molecules/ItemBook";
+import Modal from "../templates/Modal";
+import AddBook from "../organisms/AddBook";
+import getApiUrl from "../services/Api";
+
+import axios from 'axios';
 
 const LogBook = () => {
+  const token = localStorage.getItem('token');
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTag, setSelectedTag] = useState('');
 
-    return (
-      <>
-        <div className="flex justify-between">
-            <h3>Journal de bord</h3>
-            <SearchBar placeholder="Search for items..." />
-            <div>
-                <Select />
-                <Button>Nouveau message</Button>
-            </div>
+  useEffect(() => {
+    axios.get (getApiUrl("/logbook"), {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => {
+      console.log('Récupération des données');
+      setBooks(response.data);
+      setLoading(false);
+    })
+    .catch(error => {
+      setError("Une erreur est survenue lors de la récupération des données");
+      setLoading(false);
+    });
+  }, [token]);
+
+  const handleAddMessage = async (newMessage) => {
+    try {
+      const response = await axios.post (getApiUrl("/logbook"), newMessage, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      setBooks([...books, response.data]);
+      setShowAddModal(false);
+    } catch (error) {
+      console.error("Erreur lors de l'ajout du message :", error);
+    }
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleTagChange = (e) => {
+    setSelectedTag(e.target.value);
+  };
+
+  const filteredBooks = books.filter(book => 
+    (book.title_message.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    book.content_message.toLowerCase().includes(searchQuery.toLowerCase())) &&
+    (selectedTag === '' || book.tag_message === selectedTag)
+  );
+
+  const options = [
+    { value: '', label: 'Sélectionnez' },
+    { value: 'observation', label: 'Observation' },
+    { value: 'conseil', label: 'Conseil' },
+    { value: 'apprentissage', label: 'Apprentissage' },
+    { value: 'idee', label: 'Idée' },
+  ];
+
+  if (loading) return <p>Chargement...</p>;
+  if (error) return <p>{error}</p>;
+
+  return (
+    <>
+      <div className="md:flex justify-between">
+        <h3 className='mb-4 lg:mb-0'>Journal de bord</h3>
+        <SearchBar placeholder="Rechercher des messages..." value={searchQuery} onChange={handleSearchChange} />
+        <div className='flex mt-4 md:mt-0 gap-2'>
+          <Select options={options} value={selectedTag} onChange={handleTagChange} />
+          <Button onClick={() => setShowAddModal(true)}>Nouveau message</Button>
         </div>
-        <div className="mt-12 flex flex-wrap">
-            <div className="flex flex-wrap justify-between">
-              <div className="w-1/3">
-              <ItemBook id="1" message="La productivité s'épanouit avec la motivation. Pour rester motivé, définissez des objectifs précis et mesurables, et prenez le temps de reconnaître chaque petit succès. Un environnement bien organisé et des pauses régulières stimulent également l'efficacité. Restez curieux, cherchez constamment à apprendre et à vous adapter, car le dynamisme personnel est le moteur de toute réussite." />
-              </div>
-              <div className="w-1/3">
-              <ItemBook id="2" message="La productivité s'épanouit avec la motivation. Pour rester motivé, définissez des objectifs précis et mesurables, et prenez le temps de reconnaître chaque petit succès. Un environnement bien organisé et des pauses régulières stimulent également l'efficacité. Restez curieux, cherchez constamment à apprendre et à vous adapter, car le dynamisme personnel est le moteur de toute réussite. La productivité s'épanouit avec la motivation. Pour rester motivé, définissez des objectifs précis et mesurables, et prenez le temps de reconnaître chaque petit succès. Un environnement bien organisé et des pauses régulières stimulent également l'efficacité. Restez curieux, cherchez constamment à apprendre et à vous adapter, car le dynamisme personnel est le moteur de toute réussite."/>
-              </div>
-              <div className="w-1/3">
-              <ItemBook id="3" message="La productivité s'épanouit avec la motivation. Pour rester motivé, définissez des objectifs précis et mesurables, et prenez le temps de reconnaître chaque petit succès. Un environnement bien organisé et des pauses régulières stimulent également l'efficacité. Restez curieux, cherchez constamment à apprendre et à vous adapter, car le dynamisme personnel est le moteur de toute réussite. La productivité s'épanouit avec la motivation. Pour rester motivé, définissez des objectifs précis et mesurables, et prenez le temps de reconnaître chaque petit succès. Un environnement bien organisé et des pauses régulières stimulent également l'efficacité. Restez curieux, cherchez constamment à apprendre et à vous adapter, car le dynamisme personnel est le moteur de toute réussite. La productivité s'épanouit avec la motivation. Pour rester motivé, définissez des objectifs précis et mesurables, et prenez le temps de reconnaître chaque petit succès. Un environnement bien organisé et des pauses régulières stimulent également l'efficacité. Restez curieux, cherchez constamment à apprendre et à vous adapter, car le dynamisme personnel est le moteur de toute réussite."/>
-              </div> 
-            </div>
-            
-        </div>
-      </>
-    )
-  }
+      </div>
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">  
+        {filteredBooks.map(book => (
+          <Link key={book.id_message} to={`/logbook/${book.id_message}`}>
+            <ItemBook 
+              message={book.content_message} 
+              title={book.title_message} 
+              tag={book.tag_message} 
+            />
+          </Link>
+        ))}
+      </div>
   
-  export default LogBook;
+      <Modal show={showAddModal} onClose={() => setShowAddModal(false)}>
+        <AddBook onSubmit={handleAddMessage} />
+      </Modal>
+    </>
+  );
+  
+};
+
+export default LogBook;
+
+
+
+

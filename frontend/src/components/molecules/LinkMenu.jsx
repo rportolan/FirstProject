@@ -6,7 +6,7 @@ const LinkMenu = ({ to, children, iconPath, iconWidth, iconHeight }) => {
     return (
         <li className="w-full">
             <RouterLink to={to} className='flex items-center px-6 py-2 mt-6 hover:bg-neutral-900 rounded cursor-pointer'>
-                <div className='mr-4'>
+                <div className='mr-3'>
                     <Icon iconPath={iconPath} iconWidth={iconWidth} iconHeight={iconHeight} />
                 </div>
                 <p className='text-base'>{children}</p>

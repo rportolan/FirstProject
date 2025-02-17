@@ -6,10 +6,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        // Redéfinir le breakpoint 'md'
+        'md': '1245px',
+        // Vous pouvez également ajuster d'autres breakpoints si nécessaire
+        'lg': '1440px', // Exemple de redéfinition pour 'lg'
+      },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },
       fontSize: {
+        
         xss: '0.5rem',
         smm: '0.6rem',
         sm: '0.8rem',

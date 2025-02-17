@@ -11,7 +11,7 @@ const Input = ({ type, placeholder, value, onChange, className, text }) => {
             value={value}
             onChange={onChange}
             className={classNames(
-                'text-secondary border border-2 border-gray-400 rounded',
+                'w-full bg-tertiary border-secondary mb-4 p-2 border rounded',
                 className
             )}
             />

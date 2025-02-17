@@ -19,9 +19,13 @@ const Tag = ({ progress }) => {
     const baseClasses = 'text-xss px-2 py-1 text-white rounded-full';
 
     return (
-        <span className={classNames(baseClasses, tagColor)}>
+        <div>
+            <span className={classNames(baseClasses, tagColor)}>
             {status}
-        </span>
+            </span>
+            <div className='mt-1.5'></div>
+        </div>
+        
     );
 };
 

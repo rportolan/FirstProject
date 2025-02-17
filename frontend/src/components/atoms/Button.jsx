@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Button = ({ className, children, ...props }) => {
-    const baseClasses = "w-48 text-xs h-7 border-zinc-800 border rounded";
+const Button = ({ className, event, children, ...props }) => {
+    const baseClasses = "md:w-48 w-32 md:text-xs text-smm h-9 border-secondary border rounded";
     
     return (
-        <button className={classNames(baseClasses, className)} {...props}>
+        <button onClick={event} className={classNames(baseClasses, className)} {...props}>
             {children}
         </button>
     );
 };
 
 Button.propTypes = {
+    event: PropTypes.string,
     className: PropTypes.string,
     children: PropTypes.node.isRequired,
 };

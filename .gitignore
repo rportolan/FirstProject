@@ -1,1 +1,20 @@
-node_modules
+# Ignorer les fichiers d'environnement
+.env
+frontend/.env
+backend/.env
+
+# Ignorer les dépendances Node.js
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Ignorer les fichiers de logs
+*.log
+logs/
+frontend/logs/
+backend/logs/
+
+# Ignorer les fichiers de build
+dist/
+frontend/dist/
+backend/dist/

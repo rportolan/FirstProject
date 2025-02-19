@@ -87,7 +87,7 @@ exports.register = async (req, res) => {
         });
 
         // Envoi de l'e-mail de vérification
-        const verificationLink = `${process.env.API_URL}/verify-email/${verificationToken}`;
+        const verificationLink = `${process.env.FRONTEND_URL}/verify-email/${verificationToken}`;
         await transporter.sendMail({
             to: newUser.email_user,
             subject: 'Vérification de votre adresse e-mail',

@@ -13,7 +13,7 @@ const authRoutes = require('./routes/authRoute');
 const booksRoutes = require('./routes/booksRoute');
 const profileRoutes = require('./routes/usersRoute');
 
-const API_URL = process.env.API_URL;
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(helmet()); // Appliquer Helmet pour sécuriser l'application
 
 // Configurer CORS avec des paramètres spécifiques pour autoriser une origine particulière (ngrok URL)
 const corsOptions = {
-  origin: API_URL, // Remplacez par votre URL front-end ou '*' si vous voulez autoriser toutes les origines
+  origin: FRONTEND_URL, // Remplacez par votre URL front-end ou '*' si vous voulez autoriser toutes les origines
   optionsSuccessStatus: 200,
 };
 

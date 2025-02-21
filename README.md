@@ -126,6 +126,11 @@ VITE_BACKEND_URL=http://localhost:3000
 ---
 
 ### 5️⃣ Lancer le projet
+
+**⚠️ Avant de lancer le backend, installez `nodemon` globalement :**
+```bash
+npm install -g nodemon
+
 **Backend** :
 ```bash
 cd backend

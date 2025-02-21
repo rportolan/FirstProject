@@ -19,8 +19,7 @@ OneGoal est une application web permettant de **créer, gérer et structurer des
 
 ✅ **Suivi de progression**  
 - Interface dynamique affichant l’évolution des objectifs  
-- Dashboard interactif avec **indicateurs de progression**  
-- Statistiques et vues détaillées des tâches  
+- Dashboard interactif avec **indicateurs de progression**    
 
 ✅ **Backend robuste**  
 - API REST codée en **Node.js + Express**  
@@ -29,8 +28,9 @@ OneGoal est une application web permettant de **créer, gérer et structurer des
 
 ✅ **Frontend ergonomique**  
 - Développé en **React** avec une UI moderne et **TailwindCSS**  
-- Composants réutilisables pour une meilleure maintenabilité  
-- Expérience utilisateur fluide et responsive  
+- Composants réutilisables pour une meilleure maintenabilité
+- Expérience utilisateur fluide et responsive
+- Architecture en Atomic Design
 
 ---
 
@@ -60,7 +60,7 @@ OneGoal est une application web permettant de **créer, gérer et structurer des
 
 ### 1️⃣ Cloner le projet
 ```bash
-git clone https://github.com/ton-profil/onegoal.git
+git clone https://github.com/rportolan/onegoal.git
 cd onegoal
 ```
 
@@ -110,22 +110,18 @@ cp frontend/.env.example frontend/.env
 ```
 2. Configurez l’URL de l'API backend :
 ```env
-VITE_BACKEND_URL=http://localhost:5000/api
+VITE_BACKEND_URL=http://localhost:3000
 ```
 
 ---
 
 ### 4️⃣ Créer la base de données MySQL avec un script
 
-#### ✅ Option 1 : Terminal MySQL
-```bash
-mysql -u root -p < backend/database.sql
-```
-
-#### ✅ Option 2 : phpMyAdmin
+#### ✅ Avec phpMyAdmin
 1. Ouvrez **phpMyAdmin**.
-2. Importez le fichier `backend/database.sql`.
-3. La base de données `one_goal` et ses tables seront créées automatiquement.
+2. Créer une nouvelle base de donnée "one_goal" en utilisant l'interclassement "utf8mb4_general_ci"
+3. Importez le fichier `backend/database.sql`.
+4. Les tables seront créées automatiquement.
 
 ---
 
@@ -133,7 +129,7 @@ mysql -u root -p < backend/database.sql
 **Backend** :
 ```bash
 cd backend
-npm start
+nodemon start
 ```
 **Frontend** :
 ```bash
@@ -145,18 +141,9 @@ npm run dev
 ---
 
 ### 6️⃣ Créer un compte et utiliser OneGoal
-- ✅ Inscrivez-vous
+- ✅ Inscrivez-vous (n'oubliez pas de vérifier votre email)
 - ✅ Connectez-vous
 - ✅ Commencez à gérer vos objectifs 🎯
-
----
-
-## 🔥 Pourquoi ce projet est intéressant ?
-
-- 🛠 **Projet fullstack** prouvant vos compétences en **React, Node.js et MySQL**.
-- 🔒 **Mise en œuvre d’une authentification sécurisée**, recherchée en entreprise.
-- 📊 **Dashboard dynamique** avec gestion intuitive des objectifs.
-- 🏆 **Utilisation des bonnes pratiques de développement** avec une architecture modulaire.
 
 ---
 
@@ -165,8 +152,8 @@ npm run dev
 💡 **Des idées ou suggestions ?** Ouvrez une issue ou envoyez-moi un message.
 
 📬 **Me contacter :**  
-📧 Email : [tonemail@email.com](mailto:tonemail@email.com)  
-💼 LinkedIn : [linkedin.com/in/tonprofil](https://linkedin.com/in/tonprofil)  
+📧 Email : [romeoprtl.dev@gmail.com](mailto:romeoprtl.dev@gmail.com)  
+💼 LinkedIn : https://www.linkedin.com/in/romeo-portolan-a89459184/
 
 ---
 

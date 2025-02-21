@@ -130,6 +130,7 @@ VITE_BACKEND_URL=http://localhost:3000
 **⚠️ Avant de lancer le backend, installez `nodemon` globalement :**
 ```bash
 npm install -g nodemon
+```
 
 **Backend** :
 ```bash

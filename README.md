@@ -52,9 +52,13 @@ OneGoal est une application web permettant de **créer, gérer et structurer des
 
 > **Ajoute ici des captures d'écran de l'interface** pour illustrer le projet.  
 > Exemple :  
-> ![Aperçu du Dashboard](./assets/Screenshot 2024-09-16 at 16-52-22 One Goal.png)
-> ![Suivi des tâches](./assets/task-tracking.png)
-
+> ![Aperçu du Dashboard](./assets/dashboard.png)
+> ![Suivi des objectifs](./assets/myGoals.png)
+> ![Suivi des objectifs](./assets/newGoal.png)
+> ![Suivi du calendrier](./assets/calendar.png)
+> ![Suivi du journal](./assets/myBooks.png)
+> ![Suivi du profil](./assets/profile.png)
+> ![Suivi des paramètres](./assets/settings.png)
 
 ---
 
